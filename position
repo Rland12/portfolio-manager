@@ -7,20 +7,29 @@ if module_path not in sys.path:
 #Uncomment line above & run cell to save solution
 #TODO Define class that implements positionInterface & allows for the management of a position
 
-from securityInterface import securityInterface
+from implementations.securitySolution import securityInterface
+
 class position():
-    def __init__(self, security, initialPosition: int) -> None:
-    self.security = security
-    self.initialPosition = initialPosition
+    def __init__(self, security_input, initialPosition: int) -> None:
+    
+        if(isinstance(security_input,(str))):
+            self.security_input = security(security_input)
+        else:
+            self.security_input = security_input
+        
+       #self.initialPosition = initialPosition
     
     def getSecurity(self) -> securityInterface:
-        return self.security
+        return self.security_input
 
     def getPosition(self) -> int:
         return self.initialPosition
     
     def setPosition(self, inputValue: int) -> None:
-        pass
+        self.initialPosition = inputValue
     
     def addPosition(self, inputValue: int) -> None:
-        pass
+        self.initialPosition = self.initialPosition + inputValue
+            
+        if(self.initialPosition < 0):
+                raise Exception
