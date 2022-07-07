@@ -1,0 +1,32 @@
+%%writefile ../implementations/accountSolution.py 
+import os
+import sys
+module_path = os.path.abspath(os.path.join('..'))
+if module_path not in sys.path:
+    sys.path.append(module_path)
+#Uncomment line above & run cell to save solution
+#TODO Define class that implements accountInterface & allows for the management of an account
+from typing import Any, Dict, Set, Iterable
+
+class positionInterface():
+    pass
+class account():
+    def __init__(self, positions: Set[positionInterface], accountName: str) -> None:
+        self.positions = positions: Set[positionInterface]
+        self.accountName = accountName
+
+    def getName(self) -> str:
+        return self.accountName
+
+    def getAllPositions(self) -> Iterable[positionInterface]:
+        
+
+    def getPositions(self, securities: Set) -> Dict[Any, positionInterface]:
+        pass
+
+    def addPositions(self, positions: Set[positionInterface]) -> None:
+        pass
+    
+    def removePositions(self, securities: Set) -> None:
+        pass
+    
